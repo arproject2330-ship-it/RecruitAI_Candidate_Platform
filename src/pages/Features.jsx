@@ -105,31 +105,47 @@ export default function Features() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-blue-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Powerful Features for Your Success</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      <div className="relative bg-gradient-to-r from-gray-900 to-black text-white py-20 border-b border-blue-600/20">
+        <img
+          src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600"
+          alt="Features"
+          className="absolute inset-0 w-full h-full object-cover opacity-10"
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-5xl font-bold mb-6 animate-fade-in">
+            Powerful Features for Your Success
+          </h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-slide-up">
             Everything you need to ace your job search and land your dream role
           </p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {mainFeatures.map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-200"
+              style={{ animationDelay: `${index * 0.1}s` }}
+              className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl shadow-xl card-hover border border-gray-700/50 animate-slide-up group"
             >
-              <div className="text-blue-600 mb-4">{feature.icon}</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600 mb-4">{feature.description}</p>
+              <div className="text-blue-400 mb-4 group-hover:text-blue-300 group-hover:scale-125 transition-all duration-300">
+                {feature.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                {feature.title}
+              </h3>
+              <p className="text-gray-400 mb-4 group-hover:text-gray-300 transition-colors">
+                {feature.description}
+              </p>
               <ul className="space-y-2">
                 {feature.benefits.map((benefit, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <FileCheck className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
+                  <li key={idx} className="flex items-start group/item">
+                    <FileCheck className="h-5 w-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0 group-hover/item:text-blue-300 transition-colors" />
+                    <span className="text-gray-400 group-hover/item:text-gray-300 transition-colors">
+                      {benefit}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -137,31 +153,45 @@ export default function Features() {
           ))}
         </div>
 
-        <div className="bg-white rounded-xl p-8 mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 mb-16 border border-gray-700/50 animate-fade-in">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">
             Additional Benefits
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {additionalFeatures.map((feature, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center text-blue-600 mb-4">
+              <div
+                key={index}
+                className="text-center card-hover p-4 rounded-lg bg-gray-900/50 hover:bg-gray-900 transition-all"
+              >
+                <div className="inline-flex items-center justify-center text-blue-400 mb-4 group-hover:text-blue-300 hover:scale-125 transition-transform">
                   {feature.icon}
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h4>
-                <p className="text-gray-600">{feature.description}</p>
+                <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                  {feature.title}
+                </h4>
+                <p className="text-gray-400">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Experience All Features Today</h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Start using RecruiterAI and transform your job search experience
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-200">
-            Get Started Free
-          </button>
+        <div className="relative overflow-hidden rounded-2xl">
+          <img
+            src="https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600"
+            alt="Success"
+            className="w-full h-64 object-cover image-hover-zoom opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-gray-900 flex items-center justify-center">
+            <div className="text-center animate-fade-in">
+              <h2 className="text-3xl font-bold text-white mb-4">Experience All Features Today</h2>
+              <p className="text-xl text-gray-300 mb-8">
+                Start using RecruiterAI and transform your job search experience
+              </p>
+              <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-500 hover:to-blue-600 transition-all duration-300 btn-glow shadow-lg hover:shadow-blue-500/50">
+                Get Started Free
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

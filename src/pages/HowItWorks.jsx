@@ -70,11 +70,16 @@ export default function HowItWorks() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">How RecruiterAI Works</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      <div className="relative bg-gradient-to-r from-gray-900 to-black text-white py-20 border-b border-blue-600/20">
+        <img
+          src="https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=600"
+          alt="How it works"
+          className="absolute inset-0 w-full h-full object-cover opacity-10"
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-5xl font-bold mb-6 animate-fade-in">How RecruiterAI Works</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-slide-up">
             Six simple steps to transform your job search and accelerate your career
           </p>
         </div>
@@ -85,58 +90,81 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <div
               key={index}
+              style={{ animationDelay: `${index * 0.1}s` }}
               className={`flex flex-col ${
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              } items-center gap-8`}
+              } items-center gap-8 animate-fade-in`}
             >
               <div className="flex-1">
                 <div
-                  className={`bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 ${
+                  className={`bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl shadow-xl card-hover border border-gray-700/50 ${
                     index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
-                  }`}
+                  } group`}
                 >
-                  <div className="text-blue-600 mb-4 flex items-center gap-3">
+                  <div className="text-blue-400 mb-4 flex items-center gap-3 group-hover:text-blue-300 transition-colors">
                     {step.icon}
-                    <span className="text-sm font-semibold uppercase tracking-wide">
+                    <span className="text-sm font-semibold uppercase tracking-wide text-gray-400 group-hover:text-gray-300 transition-colors">
                       {step.step}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                    {step.description}
+                  </p>
                 </div>
               </div>
               <div className="flex-1 flex justify-center">
-                <div className="w-64 h-64 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center">
-                  <div className="text-blue-600 transform scale-150">{step.icon}</div>
+                <div className="w-64 h-64 bg-gradient-to-br from-blue-600/20 to-blue-400/10 rounded-full flex items-center justify-center border border-blue-600/30 hover-scale group">
+                  <div className="text-blue-400 transform scale-150 group-hover:text-blue-300 group-hover:scale-[1.65] transition-all">
+                    {step.icon}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="bg-white rounded-2xl p-12 shadow-lg mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-12 shadow-xl mb-16 border border-gray-700/50 animate-fade-in">
+          <h2 className="text-3xl font-bold text-white mb-12 text-center">
             Why Choose RecruiterAI?
           </h2>
           <div className="grid md:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl font-bold text-blue-600 mb-2">{benefit.number}</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">{benefit.label}</div>
-                <p className="text-gray-600">{benefit.description}</p>
+              <div
+                key={index}
+                className="text-center card-hover p-4 rounded-lg bg-gray-900/50 hover:bg-gray-900 transition-all"
+              >
+                <div className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent mb-2">
+                  {benefit.number}
+                </div>
+                <div className="text-lg font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                  {benefit.label}
+                </div>
+                <p className="text-gray-400">{benefit.description}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Join thousands of job seekers who are already using RecruiterAI
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-200">
-            Start Your Free Trial
-          </button>
+        <div className="relative overflow-hidden rounded-2xl">
+          <img
+            src="https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Success"
+            className="w-full h-64 object-cover image-hover-zoom opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-gray-900 flex items-center justify-center">
+            <div className="text-center animate-fade-in">
+              <h2 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
+              <p className="text-xl text-gray-300 mb-8">
+                Join thousands of job seekers who are already using RecruiterAI
+              </p>
+              <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-500 hover:to-blue-600 transition-all duration-300 btn-glow shadow-lg hover:shadow-blue-500/50">
+                Start Your Free Trial
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

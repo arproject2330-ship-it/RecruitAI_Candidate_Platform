@@ -49,11 +49,16 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      <div className="relative bg-gradient-to-r from-gray-900 to-black text-white py-20 border-b border-blue-600/20">
+        <img
+          src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600"
+          alt="Contact"
+          className="absolute inset-0 w-full h-full object-cover opacity-10"
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-5xl font-bold mb-6 animate-fade-in">Contact Us</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-slide-up">
             Have questions? We'd love to hear from you. Send us a message and we'll respond as soon
             as possible.
           </p>
@@ -63,20 +68,20 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {contactInfo.map((info, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full text-blue-600 mb-4">
+            <div key={index} className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-md text-center card-hover border border-gray-700/50 group animate-fade-in">
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-600/20 rounded-full text-blue-400 mb-4 group-hover:bg-blue-600/40 group-hover:text-blue-300 transition-all">
                 {info.icon}
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h3>
+              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">{info.title}</h3>
               {info.link ? (
                 <a
                   href={info.link}
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  className="text-gray-400 hover:text-blue-400 transition-colors"
                 >
                   {info.details}
                 </a>
               ) : (
-                <p className="text-gray-600">{info.details}</p>
+                <p className="text-gray-400">{info.details}</p>
               )}
             </div>
           ))}
@@ -84,10 +89,10 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg">
+            <h2 className="text-3xl font-bold text-white mb-6">Send Us a Message</h2>
+            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl shadow-lg border border-gray-700/50">
               <div className="mb-6">
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-2">
                   Your Name
                 </label>
                 <input
@@ -97,13 +102,13 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 border border-gray-600 bg-gray-900 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all placeholder-gray-500"
                   placeholder="John Doe"
                 />
               </div>
 
               <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2">
                   Email Address
                 </label>
                 <input
@@ -113,13 +118,13 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 border border-gray-600 bg-gray-900 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all placeholder-gray-500"
                   placeholder="john@example.com"
                 />
               </div>
 
               <div className="mb-6">
-                <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="subject" className="block text-sm font-semibold text-gray-300 mb-2">
                   Subject
                 </label>
                 <input
@@ -129,13 +134,13 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 border border-gray-600 bg-gray-900 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all placeholder-gray-500"
                   placeholder="How can we help?"
                 />
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
@@ -145,14 +150,14 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 border border-gray-600 bg-gray-900 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none placeholder-gray-500"
                   placeholder="Tell us more about your inquiry..."
                 ></textarea>
               </div>
 
               {submitted && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-800 font-semibold">
+                <div className="mb-6 p-4 bg-green-900/30 border border-green-600 rounded-lg">
+                  <p className="text-green-300 font-semibold">
                     Thank you! Your message has been sent successfully.
                   </p>
                 </div>
@@ -160,7 +165,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-500 hover:to-blue-600 transition-all duration-300 btn-glow flex items-center justify-center gap-2"
               >
                 <Send className="h-5 w-5" />
                 Send Message
@@ -169,50 +174,50 @@ export default function Contact() {
           </div>
 
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-white mb-6">Frequently Asked Questions</h2>
             <div className="space-y-6">
-              <div className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center">
-                  <MessageSquare className="h-5 w-5 text-blue-600 mr-2" />
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-md card-hover border border-gray-700/50 group">
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-center group-hover:text-blue-300 transition-colors">
+                  <MessageSquare className="h-5 w-5 text-blue-400 mr-2 group-hover:text-blue-300 transition-colors" />
                   How does the ATS score work?
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
                   Our AI analyzes your resume against Applicant Tracking Systems used by major
                   companies and provides a score from 0-100 based on formatting, keywords, and
                   content optimization.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center">
-                  <MessageSquare className="h-5 w-5 text-blue-600 mr-2" />
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-md card-hover border border-gray-700/50 group">
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-center group-hover:text-blue-300 transition-colors">
+                  <MessageSquare className="h-5 w-5 text-blue-400 mr-2 group-hover:text-blue-300 transition-colors" />
                   Is RecruiterAI really free?
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
                   Yes! Our core features including ATS scoring, job search, and profile creation are
                   completely free. Premium features like unlimited mock interviews are available
                   with a subscription.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center">
-                  <MessageSquare className="h-5 w-5 text-blue-600 mr-2" />
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-md card-hover border border-gray-700/50 group">
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-center group-hover:text-blue-300 transition-colors">
+                  <MessageSquare className="h-5 w-5 text-blue-400 mr-2 group-hover:text-blue-300 transition-colors" />
                   How accurate are the mock interviews?
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
                   Our mock interviews use advanced AI trained on thousands of real interview
                   questions. They adapt to your responses and provide feedback comparable to human
                   interviewers.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center">
-                  <MessageSquare className="h-5 w-5 text-blue-600 mr-2" />
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-md card-hover border border-gray-700/50 group">
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-center group-hover:text-blue-300 transition-colors">
+                  <MessageSquare className="h-5 w-5 text-blue-400 mr-2 group-hover:text-blue-300 transition-colors" />
                   Can I cancel my premium subscription anytime?
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
                   Absolutely! You can cancel your premium subscription at any time from your account
                   settings. No questions asked, and you'll still have access until the end of your
                   billing period.
@@ -222,14 +227,23 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Need Immediate Assistance?</h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Check out our Help Center for instant answers to common questions
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-200">
-            Visit Help Center
-          </button>
+        <div className="relative overflow-hidden rounded-2xl mt-16">
+          <img
+            src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Help Center"
+            className="w-full h-64 object-cover image-hover-zoom opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-gray-900 flex items-center justify-center">
+            <div className="text-center animate-fade-in">
+              <h2 className="text-3xl font-bold text-white mb-4">Need Immediate Assistance?</h2>
+              <p className="text-xl text-gray-300 mb-8">
+                Check out our Help Center for instant answers to common questions
+              </p>
+              <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-500 hover:to-blue-600 transition-all duration-300 btn-glow shadow-lg hover:shadow-blue-500/50">
+                Visit Help Center
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
